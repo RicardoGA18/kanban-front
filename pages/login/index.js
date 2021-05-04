@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import LoginForm from '../../src/components/auth/Login'
+import LoginForm from '../../src/components/auth/LoginForm'
 
 import {
   Container,

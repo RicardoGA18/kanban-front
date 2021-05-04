@@ -1,14 +1,12 @@
 import React from 'react'
 import {
   Avatar,
-  Card,
-  CardContent,
-  InputAdornment,
   Grid,
   TextField,
   Typography,
   Box,
   Button,
+  Link,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Form , useFormik , FormikProvider } from 'formik'
@@ -31,11 +29,20 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: '30px 1fr',
     gridGap: 10,
   },
-  flexCenter: {
+  flexIcon: {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-  }
+  },
+  flexCenter: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  icon: {
+    color: theme.palette.primary.main,
+    fontSize: 30,
+  },
 }))
 
 const LoginForm = () => {
@@ -99,8 +106,10 @@ const LoginForm = () => {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Box className={classes.inputContainer}>
-                <Box className={classes.flexCenter}>
-                  <PersonIcon style={{ fontSize: 30 }} />
+                <Box className={classes.flexIcon}>
+                  <PersonIcon  
+                    className={classes.icon}
+                  />
                 </Box>
                 <TextField 
                   fullWidth
@@ -116,8 +125,10 @@ const LoginForm = () => {
             </Grid>
             <Grid item xs={12}>
               <Box className={classes.inputContainer}>
-                <Box className={classes.flexCenter}>
-                  <LockIcon style={{ fontSize: 30 }} />
+                <Box className={classes.flexIcon}>
+                  <LockIcon 
+                    className={classes.icon}
+                  />
                 </Box>
                 <TextField 
                   fullWidth
@@ -138,9 +149,26 @@ const LoginForm = () => {
                 color="primary"
                 type="submit"
                 disabled={isSubmitting}
+                style={{ color: 'white' }}
               >
                 Iniciar Sesión
               </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Box className={classes.flexCenter}>
+                <Typography color="textSecondary" variant="overline">
+                  <Link href="/registro" color="inherit">
+                    ¿Aún no tienes una cuenta? Regístrate
+                  </Link>
+                </Typography>
+              </Box>
+              <Box className={classes.flexCenter}>
+                <Typography color="textSecondary" variant="overline">
+                  <Link href="#" color="inherit">
+                    ¿Olvidaste tu contraseña?
+                  </Link>
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
         </Form>
